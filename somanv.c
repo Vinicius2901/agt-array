@@ -1,23 +1,46 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main()
 {
-    int n, i;
-    int gru[10] = {1,2,3,4,5,6,7,8,9};
+    int n, i, tam;
+    int *gru;
     printf ("Digite um número inteiro: ");
     scanf (" %i", &n);
-    printf ("v = [");
-    for (i = 0; i < 9; i++)
+    printf ("Digite o tamanho do vetor: ");
+    scanf (" %i", &tam);
+    gru = malloc(tam * sizeof(int));
+    printf ("Digite os números do vetor: ");
+    if (gru != NULL)
     {
-        gru[i] = gru[i] + n;
-        if (i < 8)
+        for (i = 0; i < tam; i++)
         {
-            printf ("%i,", gru[i]);
+            scanf (" %i", &gru[i]);
         }
-        else
-        {
-            printf ("%i", gru[i]);
+    }
+    else
+    {
+        return 1;
+    }
+    printf ("v = [");
+    if (gru != NULL)
+    {
+        for (i = 0; i < tam; i++)
+        {   
+            gru[i] = gru[i] + n;
+            if (i < tam-1)
+            {
+                printf ("%i,", gru[i]);
+            }
+            else
+            {
+                printf ("%i", gru[i]);
+            }
         }
+    }
+    else
+    {
+        return 1;
     }
     printf ("]\n");
     return 0;
