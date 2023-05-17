@@ -4,7 +4,7 @@
 
 int main()
 {
-    int i, x, n, tam, menor = 2*pow (10, 8), pos, aux, *gru;
+    int i, x, n, tam, menor, pos, aux, *gru;
     printf ("Digite o tamanho do vetor: ");
     scanf (" %i", &tam);
     gru = malloc (tam * sizeof(int));
