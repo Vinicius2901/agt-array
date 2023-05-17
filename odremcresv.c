@@ -4,7 +4,7 @@
 
 int main()
 {
-    int i, n, tam, menor = 2*pow (10, 8), pos, *gru;
+    int i, x, n, tam, menor = 2*pow (10, 8), pos, aux, *gru;
     printf ("Digite o tamanho do vetor: ");
     scanf (" %i", &tam);
     gru = malloc (tam * sizeof(int));
@@ -15,28 +15,31 @@ int main()
         {
             scanf(" %i", &gru[i]);
         }
-        for (i = 0; i < tam; i++)
+        for (x = 0; x < tam; x++)
         {
-            if (gru[i] < menor)
+            menor = gru[x];
+            for (i = x; i < tam; i++)
             {
-                menor = gru[i];
-                pos = i;
+                if (gru[i] < menor)
+                {
+                    menor = gru[i];
+                    pos = i;
+                }
             }
+            aux = gru[x];
+            gru[x] = menor;
+            gru[pos] = aux;
         }
-        gru[pos] = gru[0];
-        gru[0] = menor;
-         
-        }
-        printf ("[");
+        printf ("v = [");
         for (i = 0; i < tam; i++)
         {
-            if (i < tam - 1)
+            if (i < tam-1)
             {
                 printf ("%i, ", gru[i]);
             }
             else
             {
-                printf ("%i]", gru[i]);
+                printf (" %i]\n", gru[i]);
             }
         }
     }
@@ -44,5 +47,6 @@ int main()
     {
         return 1;
     }
+    
     return 0;
 }
