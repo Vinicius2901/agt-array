@@ -39,7 +39,7 @@ int main()
             }
             else
             {
-                printf (" %i]\n", gru[i]);
+                printf ("%i]\n", gru[i]);
             }
         }
     }
