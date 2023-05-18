@@ -8,64 +8,77 @@ int main()
     scanf (" %i", &tam);
     gru = malloc(tam*sizeof(int));
     printf ("Digite os elementos do vetor: ");
-    for (i = 0; i < tam; i++)
+    if (gru != NULL)
     {
-        scanf (" %i", &gru[i]);
-    }
-    printf("Digite um numero: ");
-    scanf (" %i", &numero);
-    for (i = 0; i < tam; i++)
-    {
-        if(numero == gru[i])
-        {
-            posicao++;
-        }
-    }
-    if(posicao == -1)
-    {
-        printf("\nNao existe.\n");
-        printf("v = [");
         for (i = 0; i < tam; i++)
         {
-            if (i < tam-1)
+            scanf (" %i", &gru[i]);
+        }
+        printf("Digite um numero: ");
+        scanf (" %i", &numero);
+        for (i = 0; i < tam; i++)
+        {
+            if(numero == gru[i])
+           {
+                posicao++;
+            }
+        }
+        if(posicao == -1)
+        {
+            printf("\nNao existe.\n");
+            printf("v = [");
+            for (i = 0; i < tam; i++)
             {
-                printf("%i,", gru[i]);
+                if (i < tam-1)
+                {
+                    printf("%i,", gru[i]);
+                }
+                else
+                {
+                    printf("%i]\n", gru[i]);
+                }
+            }
+        }
+        else
+        {
+            posit = malloc(posicao*sizeof(int));
+            if (posit != NULL)
+            {
+                for (i = 0; i < tam; i++)
+                {
+                    if(numero == gru[i])
+                    {
+                        posit[posicao1] = i;
+                        posicao1++;
+                    }
+                }
+                printf ("\nExiste na posicao: ");
+                for (posicao1 = 0; posicao1 <= posicao; posicao1++)
+                {
+                    printf("%i ", posit[posicao1]);
+                }
+                printf("\nv = [");
+                for (i = 0; i < tam; i++)
+                {
+                    if(i < tam - 1)
+                    {
+                        printf("%i,", gru[i]);
+                    }
+                    else
+                    {
+                        printf("%i]\n", gru[i]);
+                    }
+                }
             }
             else
             {
-                printf("%i]\n", gru[i]);
+                return 1;
             }
         }
     }
     else
     {
-        posit = malloc(posicao*sizeof(int));
-        for (i = 0; i < tam; i++)
-        {
-            if(numero == gru[i])
-            {
-                posit[posicao1] = i;
-                posicao1++;
-            }
-        }
-        printf ("\nExiste na posicao: ");
-        for (posicao1 = 0; posicao1 <= posicao; posicao1++)
-        {
-            printf("%i ", posit[posicao1]);
-        }
-        printf("\nv = [");
-        for (i = 0; i < tam; i++)
-        {
-            if(i < tam - 1)
-            {
-                printf("%i,", gru[i]);
-            }
-            else
-            {
-                printf("%i]\n", gru[i]);
-            }
-        }
-
+        return 1;
     }
     return 0;
 }
