@@ -41,6 +41,7 @@ int main()
         }
         else
         {
+            posicao++;
             posit = malloc(posicao*sizeof(int));
             if (posit != NULL)
             {
@@ -52,8 +53,8 @@ int main()
                         posicao1++;
                     }
                 }
-                printf ("\nExiste na posicao: ");
-                for (posicao1 = 0; posicao1 <= posicao; posicao1++)
+                printf ("\nExiste na(s) posicao(oes): ");
+                for (posicao1 = 0; posicao1 < posicao; posicao1++)
                 {
                     printf("%i ", posit[posicao1]);
                 }
